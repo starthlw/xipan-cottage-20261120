@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 1024" fill="none">
+<defs>
+ <linearGradient id="timber" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#d6b078"/><stop offset=".48" stop-color="#ba8c58"/><stop offset="1" stop-color="#8e663e"/></linearGradient>
+ <linearGradient id="beam" x2="1" y2=".2"><stop stop-color="#8b6240"/><stop offset=".35" stop-color="#c59660"/><stop offset=".65" stop-color="#a47748"/><stop offset="1" stop-color="#715433"/></linearGradient>
+ <linearGradient id="plaster" x2="0" y2="1"><stop stop-color="#f0dcb2"/><stop offset=".5" stop-color="#d9c394"/><stop offset="1" stop-color="#b29666"/></linearGradient>
+ <linearGradient id="roof" x2=".3" y2="1"><stop stop-color="#b07b48"/><stop offset=".38" stop-color="#d99e64"/><stop offset=".6" stop-color="#b07843"/><stop offset="1" stop-color="#94613a"/></linearGradient>
+ <radialGradient id="tabletop" cx=".35" cy=".25" r=".8"><stop stop-color="#e7c797"/><stop offset=".6" stop-color="#c9a46b"/><stop offset="1" stop-color="#b58b55"/></radialGradient>
+ <linearGradient id="pot" x2="1" y2=".7"><stop stop-color="#afbb8b"/><stop offset=".34" stop-color="#889871"/><stop offset=".72" stop-color="#65744e"/><stop offset="1" stop-color="#425539"/></linearGradient>
+ <linearGradient id="cloth" x2=".4" y2="1"><stop stop-color="#f6e8c5"/><stop offset=".75" stop-color="#e0d1a6"/><stop offset="1" stop-color="#b6a27e"/></linearGradient>
+ <filter id="paint" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".12" numOctaves="3" seed="17" result="grain"/><feColorMatrix in="grain" type="matrix" values="0 0 0 0 .45 0 0 0 0 .38 0 0 0 0 .25 0 0 0 .1 0" result="faint"/><feComposite in="faint" in2="SourceGraphic" operator="in" result="texture"/><feBlend in="SourceGraphic" in2="texture" mode="multiply"/></filter>
+ <filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="2" seed="4" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/></filter>
+ <filter id="path-soil" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="8" result="edge"/><feDisplacementMap in="SourceGraphic" in2="edge" scale="7" result="path"/><feTurbulence type="fractalNoise" baseFrequency=".3" numOctaves="3" seed="19" result="grit"/><feColorMatrix in="grit" type="matrix" values=".3 0 0 0 .7 0 .3 0 0 .65 0 0 .3 0 .6 0 0 0 0 1" result="earth"/><feComposite in="earth" in2="path" operator="in" result="texture"/><feBlend in="path" in2="texture" mode="multiply"/></filter>
+ <pattern id="soil-flecks" width="42" height="39" patternUnits="userSpaceOnUse"><g fill="#aa8f60" opacity=".35"><ellipse cx="3" cy="9" rx="1.6" ry=".8"/><ellipse cx="19" cy="5" rx="1" ry=".6"/><ellipse cx="32" cy="26" rx="1.4" ry=".6"/><circle cx="9" cy="31" r=".7"/></g><g fill="#f1d7a6" opacity=".6"><ellipse cx="10" cy="15" rx="2.5" ry=".8"/><ellipse cx="27" cy="33" rx="2" ry=".9"/><ellipse cx="36" cy="10" rx="1.7" ry=".7"/></g></pattern>
+ <filter id="shade" x="-40%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
+ <pattern id="grain" width="60" height="15" patternUnits="userSpaceOnUse"><path d="M3 3q15-4 45 1M9 10q23 6 44-1m-23-4h14" stroke="#f7e0b4" stroke-opacity=".14" stroke-width="1.2"/><path d="M0 7q20 4 36 0" stroke="#684e34" stroke-opacity=".12"/></pattern>
+ <g id="chair"><path d="M-19 4v42m38-42v42" stroke="#775937" stroke-width="6" stroke-linecap="round"/><path d="M-23-22q22-8 46 0l-3 35q-20 8-40 0z" fill="url(#timber)" stroke="#8c693f" stroke-width="1.5"/><path d="M-16-19v29M-4-20v29m12-27v28" stroke="#d4b384" stroke-width="2" opacity=".6"/><path d="M-25 13q26-11 50 0v7q-25 11-50 0z" fill="#9d7749"/><path d="M-25 13q26-11 50 0-26 12-50 0" fill="#d1ac79"/></g>
+ <g id="table">
+  <ellipse cx="17" cy="55" rx="91" ry="27" fill="#4a592c" opacity=".24" filter="url(#shade)"/>
+  <g filter="url(#paint)">
+   <use href="#chair" x="-70" y="-2"/><use href="#chair" x="67" y="-2"/>
+   <path d="M-42 2l-5 52m88-52l5 51M-1 14v45" stroke="#795838" stroke-width="8" stroke-linecap="round"/>
+   <path d="M-75-3v10c0 19 150 31 150-1V-3" fill="#8f6b42"/>
+   <ellipse cy="-3" rx="75" ry="33" fill="url(#tabletop)" stroke="#a77f4e" stroke-width="1.5"/>
+   <ellipse cy="-4" rx="72" ry="31" fill="url(#grain)"/>
+   <path d="M-68-13q60 6 136 0M-73-2q64 7 146 0M-65 14q58 5 130 0" stroke="#9f7f52" stroke-width="1.1" opacity=".5"/>
+   <path d="M-30-26l39 2 34 44-13 23-45-19z" fill="url(#cloth)"/>
+   <path d="M-29-24L2-5l24 23 15 1M-13 4l34 27M7-21l-18 47" stroke="#eee2ba" stroke-width="1.5" opacity=".65"/>
+   <path d="M29 19l-2 18m8-18l-2 12m-12-7l-1 11" stroke="#baa983" stroke-width="1"/>
+   <ellipse cx="27" cy="-10" rx="9" ry="4" fill="#776d48" opacity=".28"/>
+   <path d="M20-24h12l3 12q-7 8-16 0z" fill="#879d72" stroke="#6c7e56" stroke-width="1"/>
+   <path d="M27-24v-22m0 14l-8-7m8-2l8-10" stroke="#6b8650" stroke-width="1.7"/>
+   <path d="M20-36q-11-3-7-8 8-2 10 9m7-8q2-11 8-10 5 7-8 12" fill="#90a05a"/>
+   <g fill="#f0ddb1"><circle cx="27" cy="-48" r="4"/><circle cx="23" cy="-46" r="3"/><circle cx="32" cy="-46" r="3"/></g><circle cx="27" cy="-46" r="2" fill="#ddb86d"/>
+   <ellipse cx="-40" cy="0" rx="13" ry="6" fill="#a18e69" opacity=".25"/><ellipse cx="-42" cy="-2" rx="13" ry="5" fill="#f5e8c5" stroke="#d6c296" stroke-width=".8"/>
+   <path d="M-18-10l-12 8m-2-5l-13-4" stroke="#6a7355" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+ </g>
+ <g id="cooking-pot"><ellipse cy="15" rx="30" ry="12" fill="#4c4c32" opacity=".25"/><path d="M-26-4v16q4 19 28 19t26-19V-4" fill="url(#pot)" stroke="#4e6244" stroke-width="1.2"/><path d="M-24 8q2 16 17 19" stroke="#acb78b" stroke-width="2" opacity=".5"/><ellipse cy="-4" rx="28" ry="13" fill="#7c9065" stroke="#465c3d" stroke-width="2"/><path d="M-28-4q6-24 28-25 25 1 28 25" fill="url(#pot)" stroke="#6f8359" stroke-width="1.3"/><path d="M-23-11q9-15 23-15" stroke="#c0c7a0" stroke-width="2.5" opacity=".7"/><ellipse cy="-29" rx="6" ry="4" fill="#4f6440"/><path d="M-29 4l-8-1m66 1l8-1" stroke="#4c603e" stroke-width="5" stroke-linecap="round"/></g>
+</defs>
+<!-- Keep the original coop, every fence rail and all three chickens untouched.
+     The fork starts outside the coop gate and follows the meadow to the cafe. -->
+<g id="garden-paths" filter="url(#path-soil)">
+ <path d="M233 462Q328 454 385 495Q421 529 417 579L415 821" stroke="#797944" stroke-opacity=".1" stroke-width="44" stroke-linecap="round"/>
+ <path d="M234 459Q330 451 386 492Q423 528 417 579L415 821" stroke="#c9ba7e" stroke-opacity=".8" stroke-width="34" stroke-linecap="round"/>
+ <path d="M235 459Q326 457 381 492Q416 527 417 578L415 816" stroke="#e0c799" stroke-opacity=".76" stroke-width="23" stroke-linecap="round"/>
+ <path d="M417 577Q480 559 604 568" stroke="#c4b77d" stroke-opacity=".8" stroke-width="32" stroke-linecap="round"/>
+ <path d="M417 577Q480 561 604 568" stroke="#dec89b" stroke-opacity=".72" stroke-width="22" stroke-linecap="round"/>
+ <path d="M416 629L344 626M416 631L483 626M416 804L344 804M416 804L482 804" stroke="#d0bc86" stroke-opacity=".7" stroke-width="19" stroke-linecap="round"/>
+ <path d="M234 459Q330 451 386 492Q423 528 417 579L415 821M417 577Q480 559 604 568M416 629L344 626M416 631L483 626M416 804L344 804M416 804L482 804" stroke="url(#soil-flecks)" stroke-width="27" stroke-linecap="round"/>
+ <g fill="#f0dab0" opacity=".35"><ellipse cx="316" cy="467" rx="9" ry="2"/><ellipse cx="363" cy="486" rx="6" ry="2"/><ellipse cx="412" cy="559" rx="5" ry="2"/><ellipse cx="406" cy="680" rx="8" ry="3"/><ellipse cx="421" cy="744" rx="5" ry="2"/><ellipse cx="514" cy="567" rx="6" ry="2"/></g>
+ <g fill="#a39a61" opacity=".3"><circle cx="328" cy="462" r="1.4"/><circle cx="400" cy="518" r="1.6"/><circle cx="424" cy="649" r="1.8"/><circle cx="409" cy="733" r="1.4"/><circle cx="555" cy="571" r="1.5"/></g>
+</g>
+<!-- Small pavilion wholly outside the coop's east fence and south of the orchard. -->
+<g id="kitchen-pavilion" transform="translate(200 185) scale(.78)">
+<ellipse cx="533" cy="458" rx="165" ry="39" fill="#3c4f27" opacity=".23" filter="url(#shade)"/>
+<g filter="url(#paint)">
+ <!-- Flagstones nestled in the grass, not a solid floor. -->
+ <g fill="#b5ae80" stroke="#a29c70" stroke-width="1" opacity=".7"><path d="M406 475l23-6 17 9-8 12-28-1zM453 487l27-7 10 10-8 13-28-3zM495 474l31-2 8 14-13 8-29-7zM575 473l27-5 18 12-9 13-32-2zM639 469l23-7 20 10-10 13-26-2z"/></g>
+ <!-- Open pavilion, centered on the vacant meadow below the orange orchard. -->
+ <path d="M377 417l44-20 270 22-35 44-276-20z" fill="#84613f"/>
+ <path d="M383 408l39-25 270 28-33 31-276-20z" fill="url(#plaster)"/>
+ <path d="M412 386v-59l19 5v59M665 410v-71l15 4v71" fill="url(#beam)" stroke="#805d3a" stroke-width="1"/>
+ <path d="M419 342l250 11v53l-250-17z" fill="#cbb18a" opacity=".55"/>
+ <path d="M422 350l44 3v28l-44-2z" fill="#afc1a0" stroke="#ac966d" stroke-width="2"/><path d="M445 352v28m-23-17l45 2" stroke="#e0d1a7" stroke-width="2"/>
+ <path d="M486 360l164 12v5l-164-10z" fill="#9d754a"/><g fill="#d1b584"><path d="M509 347l13 1v17l-13-1zM532 351l14 1v17l-14-1zM607 357l17 1v16l-17-1z"/></g><path d="M515 345l3-10m23 15l-3-8m76 14l3-11" stroke="#8da36a" stroke-width="3"/>
+ <!-- Modestly tiled terracotta roof with irregular edge. -->
+ <path d="M352 361l77-64 229 27 68 71-111 4-240-19z" fill="#755334" opacity=".22"/>
+ <path d="M350 346l80-55 227 20 71 71-91-12-254-9z" fill="url(#roof)" stroke="#856039" stroke-width="1.7"/>
+ <path d="M429 288l235 21 7 8-239-23z" fill="#c39761" stroke="#a37846" stroke-width="1"/>
+ <path d="M350 346l3 8 30 11 254 12 91 9v-4l-91-12-254-9z" fill="#946537"/>
+ <g stroke="#946436" stroke-width="1.6" opacity=".8"><path d="M395 313l277 24M370 329l321 25M355 345l354 26M453 295l-61 65m89-62l-56 63m83-59l-48 61m76-58l-41 60m68-57l-33 58m61-55l-27 56m56-53l-20 58m41-36l-10 39"/></g>
+ <g stroke="#dfb47b" stroke-width="2" opacity=".8"><path d="M396 310l56 4m13 1l63 4m15 1l70 5M374 326l50 4m12 1l67 5m11-2l64 6m16 0l73 7M358 343l71 7m14-6l58 10m15-5l65 11m9-5l61 8m8-3l34 11"/></g>
+ <g fill="#96a55d" opacity=".7"><path d="M369 339l19-10 15 5-11 7-21 5zM592 323l20 1 7 9-16-1zM645 363l18-1 7 8-22 1z"/></g>
+ <!-- Heavy posts and carved braces. -->
+ <path d="M382 358l15 1-1 111-12 7zM664 376l16 2-3 100-14-2z" fill="url(#beam)" stroke="#8e653e" stroke-width="1"/>
+ <path d="M391 363l34 34-6 8-30-27M668 380l-28 25 4 6 29-24" fill="url(#timber)"/>
+ <path d="M387 368v100m282-81l-2 86" stroke="#d6ba8b" stroke-width="2" opacity=".6"/>
+ <!-- Counter, cabinets and stoves. -->
+ <path d="M410 423l39-20 208 16-22 34-221-18z" fill="#bdab80" stroke="#8d7852" stroke-width="1.5"/>
+ <path d="M414 435v31l222 17v-31z" fill="url(#timber)" stroke="#8e6c43" stroke-width="1"/>
+ <path d="M636 453l21-34v38l-21 26z" fill="#8b6741"/>
+ <path d="M424 441l54 4v23l-54-4zM486 446l68 5v22l-68-5zM564 452l62 4v22l-62-4z" fill="#b38b56" stroke="#957142" stroke-width="1.4"/>
+ <path d="M424 441l54 4v23l-54-4zM486 446l68 5v22l-68-5zM564 452l62 4v22l-62-4z" fill="url(#grain)"/>
+ <g fill="#6a5539"><circle cx="470" cy="454" r="2"/><circle cx="548" cy="460" r="2"/><circle cx="619" cy="465" r="2"/></g>
+ <path d="M430 420l45-10 12 16-46 9zM563 430l41-7 22 17-50 7z" fill="#63634c" stroke="#4d513c" stroke-width="1"/>
+ <use href="#cooking-pot" x="461" y="416"/><use href="#cooking-pot" x="591" y="427"/>
+ <!-- A little linen, crockery and rosemary at the counter. -->
+ <path d="M500 415l28 2 16 24-13 21-22-22z" fill="url(#cloth)"/>
+ <ellipse cx="521" cy="425" rx="13" ry="6" fill="#a0a77e"/><ellipse cx="521" cy="422" rx="13" ry="6" fill="#e6d4ab"/><path d="M514 420l8-5 6 6" fill="#a4aa6e"/>
+ <path d="M628 420l2-15h11l3 17q-7 6-16-2" fill="#9d8d65"/><path d="M636 407v-16m0 8l-8-7m8 3l6-12" stroke="#7e9457" stroke-width="2"/>
+ <!-- Unlabelled hanging sign: readable title stays in the webpage UI. -->
+ <path d="M650 385v11m21-10v12" stroke="#82734f" stroke-width="1.5"/><path d="M641 394l36 3-2 23-37-3z" fill="#889262" stroke="#66734c" stroke-width="1.3"/><path d="M650 409q8-12 17-1m-17 2h17" stroke="#ecddb5" stroke-width="1.5" stroke-linecap="round"/>
+ <!-- Herb pots sit in the grass at the posts. -->
+ <path d="M367 469l5-16 21 2-2 21q-12 7-22-1z" fill="#b89163"/><path d="M379 456q-18-10-12-20 15-1 13 17-4-25 4-27 11 8-2 28 19-18 22-8-3 11-25 12" fill="#8fa660"/><path d="M660 476l2-17 20 1-2 21q-10 7-20-1" fill="#b1855a"/><path d="M671 461q-14-21-5-25 9 3 7 20 7-23 14-17 3 12-16 22" fill="#889e59"/>
+</g>
+</g>
+<!-- Tables and their shadows scale and move with exactly the same world as the image. -->
+<use href="#table" x="261.12" y="619.52"/>
+<use href="#table" x="568.32" y="619.52"/>
+<use href="#table" x="261.12" y="803.84"/>
+<use href="#table" x="568.32" y="803.84"/>
+<!-- Low flowers border the path without gating either destination. -->
+<g stroke="#8e9d5e" stroke-width="2" stroke-linecap="round"><path d="M361 492l-2-10m7 7l3-8M447 710l3-13m-7 9l-4-8M397 835l-3-11"/></g>
+<g fill="#e9d99e"><circle cx="359" cy="480" r="3.5"/><circle cx="369" cy="480" r="3"/><circle cx="450" cy="696" r="3"/><circle cx="438" cy="697" r="3"/></g>
+</svg>

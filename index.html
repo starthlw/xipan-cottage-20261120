@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#738453">
+  <title>溪畔小馆 · 把日子煮成好味道</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="mobile.css?v=5">
+  <link rel="stylesheet" href="woodland.css?v=5">
+  <link rel="stylesheet" href="ranch-home.css?v=5">
+</head>
+<body>
+ <div class="phone-game" data-panel="guests" data-screen="ranch">
+  <section id="ranchScreen" class="ranch-screen" aria-label="牧场全景">
+   <header class="ranch-header">
+    <div class="ranch-sign"><span>☕</span><h1>溪畔小馆</h1><i>溪桥镇 · 田园食光</i></div>
+    <div class="ranch-owner"><div class="ranch-avatar" id="ranchAvatar"></div><div><strong id="ranchLevel">Lv.1</strong><div class="ranch-xp"><i id="ranchXp"></i></div><small id="ranchLevelName">溪边新店</small></div></div>
+    <div class="ranch-coins"><span>◎</span><strong id="ranchCoins">120</strong></div>
+   </header>
+   <div class="ranch-scenery">
+    <div class="ranch-world">
+     <img class="ranch-background" src="assets/ranch-reference.png" alt="牧场全景：上方瀑布与果园，左侧窝棚、木栅栏和鸡群，右侧草地上的小馆，土路连接鸡舍门外与餐厅">
+     <img class="ranch-restaurant" src="assets/woodland-restaurant.svg?v=5" alt="围栏外的小馆与四张露天餐桌">
+     <button id="enterRestaurant" class="restaurant-hotspot" aria-label="点击场景里的餐厅，进入小馆"><span class="enter-label"><i>☕</i>进入小馆 <b>›</b></span></button>
+     <div class="ranch-scene-note">溪水正轻，饭香正暖。</div>
+    </div>
+   </div>
+   <footer class="ranch-footer">
+    <button id="ranchDaily" class="ranch-daily"><span class="daily-icon">✓</span><span>今日心愿：招待邻居 <strong id="ranchGoal">0 / 8</strong></span><b>›</b></button>
+    <nav class="ranch-tools" aria-label="牧场工具">
+     <button id="ranchStock"><span id="ranchStockArt"></span><strong>仓库</strong></button>
+     <button id="ranchShop"><span id="ranchShopArt"></span><strong>小馆</strong></button>
+     <button id="ranchBook"><span id="ranchBookArt"></span><strong>图鉴</strong></button>
+    </nav>
+   </footer>
+  </section>
+  <div id="restaurantScreen" class="restaurant-screen" hidden>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="溪畔小馆首页"><img src="assets/favicon.svg" alt=""><span>溪畔小馆<small>溪桥镇的田园食光</small></span></a>
+    <div class="resource-bar">
+      <div class="resource"><span class="coin-symbol">◎</span><div><small>金币</small><strong id="coins">120</strong></div></div>
+      <div class="resource reputation"><span class="heart-symbol">♥</span><div><small>邻里好感</small><strong id="reputation">80<span> / 100</span></strong></div></div>
+      <div class="level-resource"><div class="level-mark" id="level">1</div><div><strong id="levelName">溪边新店</strong><div class="xp-track"><i id="xpBar"></i></div><small id="xpLabel">0 / 30 口碑经验</small></div></div>
+    </div>
+    <div class="header-actions"><button id="backToRanch" class="icon-button back-ranch" title="返回牧场" aria-label="返回牧场">←<small>牧场</small></button><button id="soundBtn" class="icon-button" title="开启音效" aria-label="开启音效"></button><button id="helpBtn" class="icon-button" title="玩法说明" aria-label="玩法说明">?</button></div>
+  </header>
+  <main>
+    <section class="page-heading"><h1>小小田园，热热饭香。</h1><div class="day-badge"><span class="sun-icon">☀</span><strong id="dayLabel">第 1 天 · 春日晴</strong><small id="clockLabel">午间营业 · 11:00</small></div></section>
+    <div class="game-layout">
+      <section class="restaurant-panel" aria-label="餐厅经营区">
+        <div class="scene-header"><div><span class="live-dot" id="liveDot"></span><strong id="shopStatus">小馆营业中</strong><span class="subtle scene-hint">点击餐桌，为客人上菜或收钱</span></div><div class="scene-controls"><button id="pauseBtn" class="text-button">Ⅱ 暂停</button><button id="speedBtn" class="speed-button" title="切换经营速度">1×</button></div></div>
+        <div class="scene" id="scene">
+         <div class="scene-world">
+          <img class="scene-art" src="assets/ranch-reference.png" alt="你提供的手绘田园场景：瀑布溪流、果树、鸡舍与花草环绕的草地">
+          <img class="restaurant-art" src="assets/woodland-restaurant.svg?v=4" alt="鸡舍围栏外的露天小馆：右侧红瓦木厨房、四张亚麻餐桌与从鸡舍门外分岔的草地小路">
+          <div class="scene-weather"><span>❀</span>溪桥镇 · 春日小院</div>
+          <div class="stove stove-one" id="stove0"></div><div class="stove stove-two" id="stove1"></div>
+          <div class="chef" id="chef"></div>
+          <div id="tableLayer"></div>
+          <div class="door-guest" id="doorGuest"></div>
+         </div>
+          <div class="scene-caption"><span class="mini-leaf">❧</span>种一点欢喜，煮一碗好日子。</div>
+          <div class="pause-overlay" id="pauseOverlay" hidden><span>Ⅱ</span><strong>歇一会儿</strong><p>炉火和客人都在等你回来。</p><button id="resumeBtn" class="primary-button">继续营业</button></div>
+        </div>
+        <div class="guide-strip"><div class="guide-icon" id="guideIcon">01</div><div><strong id="guideTitle">先把第一锅饭备好吧</strong><p id="guideText">在下方点击「备菜」，每锅能做 3 份。两口灶可以同时开火。</p></div><button id="guideAction" class="guide-arrow" aria-label="执行引导步骤">↗</button></div>
+      </section>
+      <aside class="side-panel" id="journalPanel" hidden>
+        <section class="goal-card"><div class="card-heading"><h2>小馆心愿</h2><span class="tiny-tag">每日</span></div><div class="goal-title"><span class="goal-flower">✿</span><div><strong id="goalTitle">把热饭送到手边</strong><p id="goalDescription">今天招待 8 位客人</p></div></div><div class="goal-progress"><i id="goalBar"></i></div><div class="goal-footer"><span id="goalCount">0 / 8 位</span><button id="goalReward" class="reward-button" disabled>奖励 ◎ 45</button></div><div class="next-unlock"><span class="book-icon">▤</span><p>下一道风味<strong id="nextRecipe">桂雨南瓜盏 <span>· Lv.2</span></strong></p></div></section>
+        <section class="ledger-card"><div class="card-heading"><h2>今日小账</h2><span class="ledger-decoration">〰</span></div><div class="ledger-line"><span>营业收入</span><strong id="revenue">◎ 0</strong></div><div class="ledger-line"><span>食材支出</span><strong id="cost">◎ 0</strong></div><div class="ledger-line"><span>已招待 / 未等到</span><strong id="served">0 / 0</strong></div><div class="ledger-total"><span>今日盈余</span><strong id="profit">◎ 0</strong></div></section>
+      </aside>
+    </div>
+    <section class="queue-card" id="guestsPanel"><div class="card-heading"><h2>门前等候 <span id="queueCount">1</span></h2><span class="seat-note" id="seatNote">还有 4 张空桌</span></div><div id="queueList"></div></section>
+    <section class="menu-section" id="menuSection" hidden><div class="menu-heading"><div><h2>团团的厨房</h2><p id="kitchenStatus">两口灶空闲 · 每次备菜 3 份</p></div><div class="menu-tabs"><button class="active" id="allTab">全部 <span>5</span></button><button id="readyTab">已学会 <span id="knownCount">2</span></button></div></div><div class="recipe-grid" id="recipeGrid"></div><p class="swipe-hint">← 左右滑动，看看更多时令菜 →</p></section>
+    <footer><span>溪畔小馆 <i>·</i> 原创静态经营小游戏</span><span id="saveStatus">进度会自动保存在这台设备</span><button id="newDayBtn" hidden>开启新的一天 →</button></footer>
+  </main>
+  <nav class="bottom-nav" aria-label="小馆功能"><button class="nav-item active" id="navGuests" data-panel="guests" aria-pressed="true"><span class="nav-art" id="navGuestsArt"></span><strong>迎客</strong><span class="nav-badge" id="guestBadge" hidden>1</span></button><button class="nav-item" id="navKitchen" data-panel="kitchen" aria-pressed="false"><span class="nav-art" id="navKitchenArt"></span><strong>备菜</strong><span class="nav-badge green" id="kitchenBadge" hidden>1</span></button><button class="nav-item" id="navJournal" data-panel="journal" aria-pressed="false"><span class="nav-art" id="navJournalArt"></span><strong>小账</strong><span class="nav-badge" id="goalBadge" hidden>✓</span></button></nav>
+  </div>
+ </div>
+  <dialog id="ranchDialog"><button class="dialog-close" data-close="ranchDialog" aria-label="关闭">×</button><div class="eyebrow">溪桥镇的田园食光</div><h2 id="ranchDialogTitle">小馆仓库</h2><p id="ranchDialogIntro"></p><div id="ranchDialogContent" class="ranch-sheet"></div><button id="ranchDialogEnter" class="primary-button">去小馆备菜 →</button></dialog>
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <dialog id="helpDialog"><button class="dialog-close" data-close="helpDialog" aria-label="关闭">×</button><div class="eyebrow">欢迎来到溪桥镇</div><h2>把一间小馆，经营成家的模样。</h2><p>你是小馆老板「阿苇」，和厨师水獭「团团」一起招待路过的邻居。</p><ol class="help-steps"><li><b>备菜</b><span>切换底部「备菜」，点击菜谱支付食材费。每锅 3 份，两口灶同时工作。左右滑动查看全部菜谱。</span></li><li><b>接待</b><span>切换「迎客」，点击门前客人的「入座」。最多坐 4 位，每位客人有自己的订单和耐心。</span></li><li><b>上菜</b><span>备好对应菜品后，点击客人餐桌的「上菜」。上菜越快，小费越多。缺菜时「先备菜」也能开火。</span></li><li><b>收钱</b><span>用餐结束后，点击餐桌「收钱」。获得金币、好感与口碑经验。</span></li><li><b>学新菜</b><span>等级满足后，用金币解锁菜谱。「小账」里可查看每日心愿、领取奖励和开启次日。</span></li></ol><p class="help-note">每个营业日 3 分钟；结束后仍可服务已有客人，再开启次日。暂停会停下所有计时。缺钱时可领取一次 30 金币的食材周转金。果园、鸡舍与溪流是小馆的场景装饰。</p><div class="dialog-actions"><button id="reliefBtn" class="secondary-button">领取食材周转金</button><button id="resetBtn" class="quiet-button">重新开店</button></div><details><summary>设计参考与原创说明</summary><p>参考了早期网页餐厅经营游戏中「食材储备—服务—收入与经验—菜谱成长」的循环。<a href="https://www.07073.com/qqct/gonglue/606363.html" target="_blank" rel="noopener">QQ 餐厅经营技巧介绍（2012）</a>和<a href="https://baike.steelhome.cn/doc-view-25406.html" target="_blank" rel="noopener">QQ 餐厅历史玩法条目</a>。田园美术参考<a href="https://supercell.com/en/games/hayday/" target="_blank" rel="noopener">Hay Day 官方展示</a>和<a href="https://news.ycwb.com/ikimvkitkm/content_53950190.htm" target="_blank" rel="noopener">QQ 农场美术风格对比</a>，本次以你提供的手绘田园图作为场景背景，配合独立绘制的木瓦厨房、露天餐桌及柔和着色的动物角色。角色、餐厅图层、菜品、文案及数值为原创，背景由用户提供；素材均随网页保存，无在线依赖。</p></details></dialog>
+  <dialog id="resetDialog"><h2>重新经营这间小馆？</h2><p>这会清除本设备的小馆存档，回到第 1 天。</p><div class="dialog-actions"><button class="secondary-button" data-close="resetDialog">继续现在的小馆</button><button id="confirmReset" class="primary-button">重新开店</button></div></dialog>
+  <script src="game.js"></script>
+  <script src="art.js?v=5"></script>
+  <script src="woodland-art.js?v=5"></script>
+  <script src="app.js?v=5"></script>
+</body>
+</html>
